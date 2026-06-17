@@ -3,7 +3,7 @@ import LeafDetail from './LeafDetail.astro';
 interface Props { eyebrow?: string; title: string; lead?: string; align?: 'center' | 'left' }
 const { eyebrow, title, lead, align = 'center' } = Astro.props;
 ---
-<div class={`shead ${align === 'left' ? 'shead--left' : ''}`}>
+<div class={`shead ${align === 'left' ? 'shead--left' : ''}`} data-reveal>
   <div class={`detail ${align === 'left' ? 'detail--left' : ''}`}><LeafDetail /></div>
   {eyebrow && <p class="eyebrow">{eyebrow}</p>}
   <h2 set:html={title}></h2>
