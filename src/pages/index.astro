@@ -1,0 +1,413 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import SectionHead from '../components/SectionHead.astro';
+import LeafDetail from '../components/LeafDetail.astro';
+import Icon from '../components/Icon.astro';
+
+const trust = [
+  '~5 Years in Business',
+  '$1M+ in Independent Lab Equipment',
+  'Doctor-Endorsed Portfolio',
+  'Majority of Customers from Referrals',
+  'BBB Accredited',
+];
+
+const ecosystem = [
+  {
+    icon: 'water', tone: 'mint', tag: 'Water',
+    title: 'Whole-Home Water Filtration',
+    body: "What you don't filter, you consume. Our whole-home system removes pharmaceuticals, hormones, heavy metals, fluoride, chlorine, microplastics and PFAS from every tap, shower and appliance — the foundation of a truly healthy home.",
+    cta: 'Explore Water Solutions',
+  },
+  {
+    icon: 'air', tone: 'blue', tag: 'Air',
+    title: 'ActivePure Air & Surface',
+    body: 'Americans spend 90% of their time indoors. Our ActivePure technology — originally developed for NASA — actively neutralizes bacteria, mold spores, allergens and airborne pathogens. Not just filtering the air. Cleaning it.',
+    cta: 'Explore Air Solutions',
+  },
+  {
+    icon: 'sleep', tone: 'mint', tag: 'Sleep & Grounding',
+    title: 'Grounding Sleep System',
+    body: "Deep, restorative sleep is how your body is designed to heal. Our grounding mattress, pillow and topper use silver-infused, EMF-blocking fabric to reconnect your body to the Earth's natural energy while you sleep.",
+    cta: 'Explore Sleep Solutions',
+  },
+  {
+    icon: 'kitchen', tone: 'blue', tag: 'Healthy Kitchen',
+    title: 'Toxin-Free Kitchen',
+    body: 'Your cookware shouldn’t be a source of toxins. Our patented kitchen products — cookware with zero forever chemicals, a chemical-free steam cleaner and a cold-press juicer — support your health every single day.',
+    cta: 'Explore Kitchen Solutions',
+  },
+  {
+    icon: 'flask', tone: 'mint', tag: 'Testing & Consulting',
+    title: 'Water Testing & Consulting',
+    body: 'Through our partnership with a Utah lab equipped with $1M+ in testing equipment, we test your well or municipal water, identify every contaminant present, and custom-build a filtration solution around exactly what we find.',
+    cta: 'Test Your Water',
+    wide: true,
+  },
+];
+
+const why = [
+  { icon: 'tag', title: 'No MLM. No Markup. No Middleman.', body: 'Many wellness brands rely on multi-level marketing that inflates prices and erodes trust. We deliver equal or superior technology direct to you, with transparent pricing.' },
+  { icon: 'verify', title: 'We Test It. We Prove It.', body: 'With over $1M in independent laboratory equipment, we identify every contaminant in your water and custom-build a solution around it. This is not marketing — it’s science.' },
+  { icon: 'swap', title: 'Loyal to What Works, Not What’s Profitable.', body: 'We’re not under contract with any single manufacturer. If a better product exists at a better price, we switch. Companies have asked to join our portfolio and been turned down.' },
+  { icon: 'book', title: 'Education First. Always.', body: 'We’ve deeply researched every product in this portfolio, and you deserve to know what we know — whether it leads to a sale or not. We educate first, recommend second, and follow up always.' },
+  { icon: 'wallet', title: 'A Healthy Home Within Reach.', body: 'A healthy home should be within reach for every family. We offer flexible financing through Affirm with interest-free options. Clean living isn’t a luxury — it’s a necessity.' },
+];
+
+const assessmentCovers = [
+  'Water quality and contaminant testing',
+  'Air quality evaluation',
+  'Cleaning product and cookware review',
+  'Overall environmental toxin assessment',
+  'Personalized, written report — no obligation',
+];
+
+const stories = [
+  { tag: 'The Hair That Grew Back', body: 'Dr. Sherry Tenpenny’s hairstylist noticed her bald spot was gone. The only thing she had changed was her water filter.', icon: 'droplet' },
+  { tag: 'The Cat That Stopped the Sneezing', body: 'Anna herself. Two cats. Constant sneezing. One air filter — and no more symptoms.', icon: 'air' },
+  { tag: 'The Horse That Flinched at the Water', body: 'A rescue horse in California visibly reacted to tap water. After a custom filtration system was installed, it drank freely. On video.', icon: 'water' },
+];
+
+const partners = ['ActivePure', 'NASA-Derived', 'BBB Accredited', 'Affirm', 'Utah Water Lab'];
+---
+
+<Layout>
+  <Header />
+
+  <!-- ============ 01 · HERO ============ -->
+  <section class="hero">
+    <div class="blob hero__blob1"></div>
+    <div class="blob hero__blob2"></div>
+    <div class="container hero__inner">
+      <div class="hero__copy">
+        <div class="detail detail--left"><LeafDetail /></div>
+        <p class="eyebrow">Whole-home wellness, done right</p>
+        <h1 class="display hero__h1">
+          God Made It Clean.<br />Man Made It Toxic.<br /><span class="accent">We Fix That.</span>
+        </h1>
+        <p class="lead hero__sub">
+          Discover the world’s most effective home wellness technologies — independently tested,
+          doctor trusted, and delivered direct to you with no middleman and no compromise.
+        </p>
+        <p class="hero__support"><Icon name="leaf" size={20} /> We help people live longer, healthier, more joyful lives. One home at a time.</p>
+        <div class="hero__cta">
+          <a href="#assessment" class="btn btn--primary">Schedule Your Healthy Home Assessment <span class="arrow">→</span></a>
+          <a href="#ecosystem" class="btn btn--ghost">Explore Our Portfolio <span class="arrow">→</span></a>
+        </div>
+      </div>
+
+      <!-- composed hero visual -->
+      <div class="hero__visual">
+        <div class="hero__card">
+          <div class="hero__leaf"><LeafDetail /></div>
+          <div class="hero__card-title">Your home, made clean</div>
+          <div class="hero__card-sub">Water · Air · Sleep · Kitchen</div>
+        </div>
+        <div class="float float--a"><span class="chip chip--mint"><Icon name="check" size={22} /></span><div><b>Doctor-Endorsed</b><small>Trusted nationwide</small></div></div>
+        <div class="float float--b"><span class="chip chip--blue"><Icon name="shield" size={22} /></span><div><b>PFAS-Free</b><small>Removed at every tap</small></div></div>
+        <div class="float float--c"><b class="float__stat">$1M+</b><small>in independent lab equipment</small></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 02 · TRUST BAR ============ -->
+  <section class="trust">
+    <div class="container trust__inner">
+      {trust.map((t, i) => (
+        <>
+          <div class="trust__item"><Icon name="check" size={20} class="trust__ic" /> {t}</div>
+          {i < trust.length - 1 && <span class="trust__dot" aria-hidden="true"></span>}
+        </>
+      ))}
+    </div>
+  </section>
+
+  <!-- ============ 03 · BRAND STATEMENT ============ -->
+  <section class="section" id="brand">
+    <div class="container brand">
+      <div class="brand__copy">
+        <div class="detail detail--left"><LeafDetail /></div>
+        <p class="eyebrow">Our story</p>
+        <h2>Your Home Should Heal You.<br /><span class="accent">Not Harm You.</span></h2>
+        <p class="muted brand__p">
+          Nearly five years ago, Anna Khait started Healthy Technologies with a calling, not just a
+          business plan. After years of research into what God created for human flourishing, she became
+          passionate about helping people remove the invisible threats hiding in their homes — and replace
+          them with the world’s most effective natural wellness technologies.
+        </p>
+        <p class="muted brand__p">
+          What began as a search for the best whole-house water filter grew into a complete home wellness
+          ecosystem covering water, air, sleep, grounding and kitchen. Every product hand-selected. Every
+          solution independently tested. Every customer treated like family.
+        </p>
+        <a href="#brand" class="btn btn--teal">Learn Our Story <span class="arrow">→</span></a>
+      </div>
+      <aside class="brand__panel">
+        <div class="brand__stat"><b>~5</b><span>years helping families</span></div>
+        <div class="brand__stat"><b>5</b><span>wellness categories, one brand</span></div>
+        <div class="brand__stat"><b>100%</b><span>independently tested</span></div>
+        <div class="brand__quote">
+          <LeafDetail />
+          <p>“Every product hand-selected. Every customer treated like family.”</p>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <!-- ============ 04 · PRODUCT ECOSYSTEM ============ -->
+  <section class="section ecosystem" id="ecosystem">
+    <div class="container">
+      <SectionHead
+        eyebrow="The portfolio"
+        title="One Brand. Every Room. <span class='accent'>Complete Wellness.</span>"
+        lead="Every product in our portfolio is researched and vetted before it reaches your home. We don’t stock shelves — we curate solutions."
+      />
+      <div class="eco-grid">
+        {ecosystem.map((e) => (
+          <article class={`eco-card card ${e.wide ? 'eco-card--wide' : ''}`}>
+            <span class={`chip chip--${e.tone}`}><Icon name={e.icon} size={30} /></span>
+            <p class="eyebrow">{e.tag}</p>
+            <h3>{e.title}</h3>
+            <p class="muted eco-card__body">{e.body}</p>
+            <a href="#assessment" class="link">{e.cta} <span class="arrow">→</span></a>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 05 · WHY CHOOSE US ============ -->
+  <section class="section why" id="why">
+    <div class="container">
+      <SectionHead
+        eyebrow="Why choose us"
+        title="Researched for Years. Proven in Homes. <span class='accent'>Trusted by Doctors.</span>"
+      />
+      <div class="why-grid">
+        {why.map((w) => (
+          <article class="why-card">
+            <span class="chip chip--mint"><Icon name={w.icon} size={28} /></span>
+            <div>
+              <h3>{w.title}</h3>
+              <p class="muted">{w.body}</p>
+            </div>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 06 · HEALTHY HOME ASSESSMENT ============ -->
+  <section class="section" id="assessment">
+    <div class="container assess">
+      <div class="assess__copy">
+        <div class="detail detail--left"><LeafDetail /></div>
+        <p class="eyebrow">In-home evaluation</p>
+        <h2>No Competitor Comes to Your Home. <span class="accent">We Do.</span></h2>
+        <p class="muted assess__p">
+          For local customers, we offer a comprehensive in-home evaluation covering your water quality, air
+          quality, cleaning products, cookware and overall environmental toxin exposure — followed by an
+          honest, personalized report tailored to your home and family.
+        </p>
+        <p class="assess__note">No pressure. No sales pitch. Just the information you need to make the best decision for the people you love.</p>
+        <a href="tel:7543363394" class="btn btn--primary">Schedule Your Assessment <span class="arrow">→</span></a>
+      </div>
+      <div class="assess__panel">
+        <div class="assess__panel-title">What it covers</div>
+        <ul class="checklist">
+          {assessmentCovers.map((c) => (
+            <li><Icon name="check" size={24} class="checklist__ic" /> <span>{c}</span></li>
+          ))}
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 07 · SOCIAL PROOF ============ -->
+  <section class="section stories" id="stories">
+    <div class="container">
+      <SectionHead
+        eyebrow="Social proof"
+        title="Real People. Real Results. <span class='accent'>Real Homes.</span>"
+        lead="The majority of our customers find us through referrals — a friend whose hair stopped thinning, a doctor whose patient no longer has eczema, a neighbor whose animals stopped getting sick."
+      />
+      <div class="stories-grid">
+        {stories.map((s) => (
+          <article class="story card card--pad">
+            <span class="chip chip--blue"><Icon name={s.icon} size={28} /></span>
+            <h3 class="story__title">{s.tag}</h3>
+            <p class="muted">{s.body}</p>
+            <div class="story__stars">{[...Array(5)].map(() => <Icon name="star" size={16} class="story__star" />)}</div>
+          </article>
+        ))}
+      </div>
+
+      <div class="endorse">
+        <span class="chip chip--mint"><Icon name="stethoscope" size={30} /></span>
+        <div>
+          <h3>Trusted by naturopathic & holistic physicians nationwide</h3>
+          <p class="muted">Our physician partnerships are not paid endorsements. They’re relationships built on results — doctors who recommend our products because their patients get better.</p>
+        </div>
+        <a href="#stories" class="btn btn--ghost endorse__cta">Read More Stories <span class="arrow">→</span></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 08 · PARTNER LOGOS ============ -->
+  <section class="section--tight partners">
+    <div class="container center">
+      <p class="eyebrow">We are honored to partner with</p>
+      <div class="partners__row">
+        {partners.map((p) => <span class="partners__item">{p}</span>)}
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 09 · EMAIL SIGNUP ============ -->
+  <section class="signup">
+    <div class="container signup__inner">
+      <div class="blob signup__blob"></div>
+      <div class="detail"><LeafDetail /></div>
+      <h2 class="signup__h">Join Our <span class="accent-light">HEALTHY</span> Family</h2>
+      <p class="signup__sub">Get research, resources and real stories delivered straight to your inbox. No spam — just the truth about what’s in your home, and what you can do about it.</p>
+      <form class="signup__form" onsubmit="return false">
+        <input type="email" placeholder="you@email.com" aria-label="Email address" required />
+        <button type="submit" class="btn btn--teal">Subscribe <span class="arrow">→</span></button>
+      </form>
+    </div>
+  </section>
+
+  <Footer />
+</Layout>
+
+<style>
+  .accent{color:var(--teal);}
+  .accent-light{color:#8FE3D2;}
+  .link{display:inline-flex;align-items:center;gap:7px;font-weight:600;color:var(--blue);}
+  .link .arrow,.btn .arrow{font-weight:700;}
+
+  /* ---------- HERO ---------- */
+  .hero{position:relative;overflow:hidden;background:linear-gradient(180deg,#fff 0%,var(--surface) 100%);padding:72px 0 96px;}
+  .hero__blob1{width:620px;height:620px;background:var(--mint);top:-260px;right:-200px;opacity:.7;}
+  .hero__blob2{width:380px;height:380px;border:22px solid var(--blue-tint);top:120px;right:120px;opacity:.6;}
+  .hero__inner{position:relative;display:grid;grid-template-columns:1.1fr .9fr;gap:56px;align-items:center;}
+  .hero__h1{margin:14px 0 22px;}
+  .hero__sub{max-width:540px;}
+  .hero__support{display:flex;align-items:center;gap:10px;margin:22px 0 32px;font-weight:600;color:var(--teal-dark);}
+  .hero__support :global(svg){flex:none;color:var(--teal);}
+  .hero__cta{display:flex;flex-wrap:wrap;gap:14px;}
+
+  .hero__visual{position:relative;min-height:420px;}
+  .hero__card{
+    position:relative;z-index:2;background:#fff;border:1px solid var(--border);
+    border-radius:var(--radius-lg);box-shadow:var(--shadow-lg);
+    padding:48px 40px;text-align:center;max-width:360px;margin:0 auto;
+    background-image:radial-gradient(circle at 50% 0,var(--mint) 0,transparent 60%);
+  }
+  .hero__leaf{display:flex;justify-content:center;margin-bottom:18px;}
+  .hero__leaf :global(svg){width:92px;color:var(--teal);}
+  .hero__card-title{font-size:24px;font-weight:700;color:var(--blue);}
+  .hero__card-sub{font-size:15px;color:var(--slate);margin-top:6px;letter-spacing:.02em;}
+  .float{
+    position:absolute;z-index:3;display:flex;align-items:center;gap:12px;
+    background:#fff;border:1px solid var(--border);border-radius:14px;
+    box-shadow:var(--shadow-md);padding:13px 16px;
+  }
+  .float b{display:block;font-size:15px;}
+  .float small{display:block;font-size:12px;color:var(--muted);}
+  .float--a{top:18px;left:-12px;}
+  .float--b{bottom:78px;right:-14px;}
+  .float--c{bottom:0;left:24px;flex-direction:column;align-items:flex-start;gap:0;padding:16px 20px;}
+  .float__stat{font-size:26px;color:var(--teal);line-height:1;}
+
+  /* ---------- TRUST BAR ---------- */
+  .trust{background:var(--blue);}
+  .trust__inner{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:10px 18px;padding:22px 48px;}
+  .trust__item{display:inline-flex;align-items:center;gap:9px;color:#fff;font-size:14.5px;font-weight:500;}
+  .trust__ic{color:#8FE3D2;flex:none;}
+  .trust__dot{width:5px;height:5px;border-radius:50%;background:rgba(255,255,255,.4);}
+
+  /* ---------- BRAND STATEMENT ---------- */
+  .brand{display:grid;grid-template-columns:1.25fr .75fr;gap:56px;align-items:center;}
+  .brand__p{margin-bottom:18px;font-size:17px;}
+  .brand .btn{margin-top:10px;}
+  .brand__panel{background:var(--mint);border-radius:var(--radius-lg);padding:36px;display:grid;gap:18px;}
+  .brand__stat{display:flex;align-items:baseline;gap:14px;}
+  .brand__stat b{font-size:40px;font-weight:700;color:var(--blue);line-height:1;min-width:84px;}
+  .brand__stat span{font-size:15px;color:var(--slate);}
+  .brand__quote{margin-top:6px;background:#fff;border-radius:14px;padding:22px;}
+  .brand__quote :global(svg){width:34px;color:var(--teal);margin-bottom:10px;}
+  .brand__quote p{font-size:16px;font-weight:600;color:var(--ink);font-style:italic;}
+
+  /* ---------- ECOSYSTEM ---------- */
+  .ecosystem{background:var(--surface);}
+  .eco-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:24px;}
+  .eco-card{padding:34px;display:flex;flex-direction:column;align-items:flex-start;transition:transform .18s ease,box-shadow .18s ease;}
+  .eco-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-md);}
+  .eco-card .eyebrow{margin:18px 0 8px;}
+  .eco-card h3{font-size:22px;margin-bottom:10px;}
+  .eco-card__body{margin-bottom:20px;flex:1;}
+  .eco-card--wide{grid-column:1 / -1;}
+  .eco-card--wide .eco-card__body{max-width:760px;}
+
+  /* ---------- WHY ---------- */
+  .why-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:26px;}
+  .why-card{display:flex;gap:20px;align-items:flex-start;background:#fff;border:1px solid var(--border);border-radius:var(--radius);padding:30px;}
+  .why-card:nth-child(5){grid-column:1 / -1;}
+  .why-card h3{font-size:19px;margin-bottom:8px;}
+  .why-card .chip{flex:none;}
+
+  /* ---------- ASSESSMENT ---------- */
+  .assess{display:grid;grid-template-columns:1.05fr .95fr;gap:48px;align-items:center;}
+  .assess__p{font-size:17px;margin-bottom:18px;}
+  .assess__note{font-weight:600;color:var(--blue);margin-bottom:30px;}
+  .assess__panel{background:var(--blue);border-radius:var(--radius-lg);padding:42px;color:#fff;box-shadow:var(--shadow-lg);}
+  .assess__panel-title{font-size:13px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:#9FD7CB;margin-bottom:22px;}
+  .checklist{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:18px;}
+  .checklist li{display:flex;gap:14px;align-items:flex-start;font-size:17px;line-height:1.45;}
+  .checklist__ic{color:#8FE3D2;flex:none;margin-top:1px;}
+
+  /* ---------- STORIES ---------- */
+  .stories{background:var(--surface);}
+  .stories-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-bottom:28px;}
+  .story{display:flex;flex-direction:column;align-items:flex-start;}
+  .story__title{font-size:19px;margin:18px 0 10px;color:var(--blue);}
+  .story p{flex:1;}
+  .story__stars{display:flex;gap:3px;margin-top:18px;}
+  .story__star{color:var(--teal);fill:var(--teal);}
+  .endorse{display:grid;grid-template-columns:auto 1fr auto;gap:24px;align-items:center;background:#fff;border:1px solid var(--border);border-radius:var(--radius-lg);padding:32px 36px;box-shadow:var(--shadow-sm);}
+  .endorse h3{font-size:20px;margin-bottom:8px;}
+  .endorse__cta{white-space:nowrap;}
+
+  /* ---------- PARTNERS ---------- */
+  .partners__row{display:flex;flex-wrap:wrap;justify-content:center;gap:14px 40px;margin-top:24px;}
+  .partners__item{font-size:19px;font-weight:700;color:var(--muted);letter-spacing:.01em;opacity:.85;}
+
+  /* ---------- SIGNUP ---------- */
+  .signup{background:var(--blue);}
+  .signup__inner{position:relative;overflow:hidden;text-align:center;padding:84px 48px;}
+  .signup__blob{width:420px;height:420px;border:24px solid rgba(255,255,255,.07);top:-160px;left:50%;transform:translateX(-50%);}
+  .signup .detail :global(svg){color:#8FE3D2;width:46px;}
+  .signup__h{color:#fff;position:relative;}
+  .signup__sub{position:relative;max-width:560px;margin:16px auto 30px;color:#D6E3F2;font-size:17px;}
+  .signup__form{position:relative;display:flex;gap:12px;justify-content:center;flex-wrap:wrap;max-width:520px;margin:0 auto;}
+  .signup__form input{
+    flex:1;min-width:240px;font-family:inherit;font-size:16px;color:var(--ink);
+    padding:15px 20px;border:none;border-radius:var(--radius-pill);outline:none;
+  }
+
+  /* ---------- RESPONSIVE ---------- */
+  @media(max-width:980px){
+    .hero__inner,.brand,.assess{grid-template-columns:1fr;gap:40px;}
+    .hero__visual{order:-1;min-height:340px;}
+    .eco-grid,.why-grid,.stories-grid{grid-template-columns:1fr;}
+    .endorse{grid-template-columns:1fr;text-align:left;}
+    .endorse__cta{justify-self:start;}
+  }
+  @media(max-width:560px){
+    .hero__cta .btn{width:100%;justify-content:center;}
+    .float--a,.float--b,.float--c{display:none;}
+  }
+</style>

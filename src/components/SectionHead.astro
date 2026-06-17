@@ -1,0 +1,19 @@
+---
+import LeafDetail from './LeafDetail.astro';
+interface Props { eyebrow?: string; title: string; lead?: string; align?: 'center' | 'left' }
+const { eyebrow, title, lead, align = 'center' } = Astro.props;
+---
+<div class={`shead ${align === 'left' ? 'shead--left' : ''}`}>
+  <div class={`detail ${align === 'left' ? 'detail--left' : ''}`}><LeafDetail /></div>
+  {eyebrow && <p class="eyebrow">{eyebrow}</p>}
+  <h2 set:html={title}></h2>
+  {lead && <p class="lead shead__lead">{lead}</p>}
+</div>
+
+<style>
+  .shead{max-width:760px;margin:0 auto 52px;text-align:center;}
+  .shead--left{margin-left:0;margin-right:0;text-align:left;}
+  .shead .eyebrow{margin:14px 0 12px;}
+  .shead__lead{margin-top:18px;}
+  .shead--left .shead__lead{margin-left:0;}
+</style>

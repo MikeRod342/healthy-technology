@@ -1,0 +1,133 @@
+/* ============================================================
+   Healthy Technologies — global styles & design tokens
+   Derived from the brand & web design system.
+   ============================================================ */
+
+/* ---- Poppins (self-hosted) ---- */
+@font-face{font-family:'Poppins';src:url('/fonts/Poppins-Regular.ttf') format('truetype');font-weight:400;font-style:normal;font-display:swap;}
+@font-face{font-family:'Poppins';src:url('/fonts/Poppins-Italic.ttf') format('truetype');font-weight:400;font-style:italic;font-display:swap;}
+@font-face{font-family:'Poppins';src:url('/fonts/Poppins-Medium.ttf') format('truetype');font-weight:500;font-style:normal;font-display:swap;}
+@font-face{font-family:'Poppins';src:url('/fonts/Poppins-SemiBold.ttf') format('truetype');font-weight:600;font-style:normal;font-display:swap;}
+@font-face{font-family:'Poppins';src:url('/fonts/Poppins-Bold.ttf') format('truetype');font-weight:700;font-style:normal;font-display:swap;}
+@font-face{font-family:'Poppins';src:url('/fonts/Poppins-Black.ttf') format('truetype');font-weight:900;font-style:normal;font-display:swap;}
+
+:root{
+  /* brand */
+  --blue:#2763A6;
+  --blue-dark:#1E4E85;
+  --blue-tint:#EAF1F9;
+  --teal:#10B89A;
+  --teal-dark:#0C9077;
+  --mint:#E5F4EF;
+  --ink:#1A1A1A;
+  --slate:#4B5563;
+  --muted:#8B95A1;
+  --surface:#F6F8FA;
+  --border:#E4E8EC;
+  --white:#fff;
+
+  /* layout */
+  --container:1160px;
+  --pad:48px;
+  --radius:16px;
+  --radius-lg:24px;
+  --radius-pill:999px;
+
+  /* shadow */
+  --shadow-sm:0 1px 2px rgba(16,38,64,.04), 0 2px 8px rgba(16,38,64,.05);
+  --shadow-md:0 6px 24px rgba(16,38,64,.08);
+  --shadow-lg:0 18px 50px rgba(16,38,64,.12);
+
+  --font:'Poppins',system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
+}
+
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  margin:0;
+  font-family:var(--font);
+  color:var(--ink);
+  background:var(--white);
+  -webkit-font-smoothing:antialiased;
+  line-height:1.6;
+}
+img,svg{display:block;max-width:100%;}
+a{color:inherit;text-decoration:none;}
+button{font-family:inherit;}
+
+/* ---- layout helpers ---- */
+.container{max-width:var(--container);margin:0 auto;padding-left:var(--pad);padding-right:var(--pad);}
+.section{padding:96px 0;}
+.section--tight{padding:72px 0;}
+.center{text-align:center;}
+
+/* ---- type ---- */
+.eyebrow{
+  font-size:13px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--teal);margin:0;
+}
+h1,h2,h3{margin:0;letter-spacing:-.02em;font-weight:700;line-height:1.08;}
+.display{font-size:clamp(40px,5.2vw,64px);}
+h1{font-size:clamp(36px,4.4vw,52px);}
+h2{font-size:clamp(30px,3.4vw,42px);}
+h3{font-size:21px;font-weight:600;letter-spacing:-.01em;}
+.lead{font-size:clamp(17px,1.4vw,20px);line-height:1.6;color:var(--slate);}
+p{margin:0;}
+.muted{color:var(--slate);}
+
+/* ---- headline detail (leaf icon above headings) ---- */
+.detail{display:flex;justify-content:center;margin-bottom:18px;}
+.detail--left{justify-content:flex-start;}
+.detail svg{width:46px;height:auto;color:var(--teal);}
+
+/* ---- buttons ---- */
+.btn{
+  display:inline-flex;align-items:center;gap:9px;
+  font-size:16px;font-weight:600;border-radius:var(--radius-pill);
+  padding:15px 30px;border:2px solid transparent;cursor:pointer;
+  transition:transform .15s ease, box-shadow .15s ease, background .15s ease, color .15s ease;
+}
+.btn:hover{transform:translateY(-2px);}
+.btn .arrow{transition:transform .15s ease;}
+.btn:hover .arrow{transform:translateX(4px);}
+.btn--primary{background:var(--blue);color:#fff;box-shadow:var(--shadow-md);}
+.btn--primary:hover{background:var(--blue-dark);}
+.btn--teal{background:var(--teal);color:#fff;box-shadow:var(--shadow-md);}
+.btn--teal:hover{background:var(--teal-dark);}
+.btn--ghost{background:#fff;color:var(--blue);border-color:var(--blue);}
+.btn--ghost:hover{background:var(--blue-tint);}
+.btn--on-blue{background:#fff;color:var(--blue);}
+.btn--on-blue:hover{background:var(--blue-tint);}
+
+/* ---- pills / badges ---- */
+.pill{
+  display:inline-flex;align-items:center;gap:8px;
+  font-size:14px;font-weight:600;padding:8px 16px;border-radius:var(--radius-pill);
+}
+.pill--mint{background:var(--mint);color:var(--teal-dark);}
+.pill--blue{background:var(--blue-tint);color:var(--blue);}
+
+/* ---- cards ---- */
+.card{
+  background:#fff;border:1px solid var(--border);border-radius:var(--radius);
+  box-shadow:var(--shadow-sm);
+}
+.card--pad{padding:32px;}
+
+/* ---- icon chip ---- */
+.chip{
+  width:54px;height:54px;border-radius:14px;flex:none;
+  display:flex;align-items:center;justify-content:center;
+}
+.chip--mint{background:var(--mint);color:var(--teal);}
+.chip--blue{background:var(--blue-tint);color:var(--blue);}
+.chip svg{width:28px;height:28px;}
+
+/* ---- decorative circles ---- */
+.blob{position:absolute;border-radius:50%;pointer-events:none;}
+
+/* ---- responsive ---- */
+@media(max-width:900px){
+  :root{--pad:24px;}
+  .section{padding:64px 0;}
+}

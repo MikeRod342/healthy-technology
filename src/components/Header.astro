@@ -1,0 +1,43 @@
+---
+import Icon from './Icon.astro';
+const nav = [
+  { label: 'Products', href: '#ecosystem' },
+  { label: 'Why Us', href: '#why' },
+  { label: 'Home Assessment', href: '#assessment' },
+  { label: 'Stories', href: '#stories' },
+  { label: 'About', href: '#brand' },
+];
+---
+<header class="hdr" id="top">
+  <div class="container hdr__inner">
+    <a href="#top" class="hdr__logo" aria-label="Healthy Technologies home">
+      <img src="/logos/logo-horizontal.svg" alt="Healthy Technologies" />
+    </a>
+    <nav class="hdr__nav">
+      {nav.map((n) => <a href={n.href}>{n.label}</a>)}
+    </nav>
+    <a href="tel:7543363394" class="btn btn--primary hdr__cta">
+      <Icon name="phone" size={18} stroke={1.9} /> 754-336-3394
+    </a>
+  </div>
+</header>
+
+<style>
+  .hdr{
+    position:sticky;top:0;z-index:50;
+    background:rgba(255,255,255,.86);
+    backdrop-filter:blur(12px);
+    border-bottom:1px solid var(--border);
+  }
+  .hdr__inner{height:74px;display:flex;align-items:center;justify-content:space-between;gap:24px;}
+  .hdr__logo img{height:34px;}
+  .hdr__nav{display:flex;align-items:center;gap:30px;}
+  .hdr__nav a{font-size:15px;font-weight:500;color:var(--slate);transition:color .15s ease;}
+  .hdr__nav a:hover{color:var(--blue);}
+  .hdr__cta{padding:11px 22px;font-size:15px;}
+  @media(max-width:900px){
+    .hdr__nav{display:none;}
+    .hdr__logo img{height:30px;}
+  }
+  @media(max-width:560px){ .hdr__cta span{display:none;} }
+</style>

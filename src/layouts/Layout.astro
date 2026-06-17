@@ -1,0 +1,24 @@
+---
+import '../styles/global.css';
+interface Props { title?: string; description?: string }
+const {
+  title = 'Healthy Technologies — Your Home Should Heal You, Not Harm You',
+  description = "The world's most effective home wellness technologies — water, air, sleep, grounding and kitchen. Independently tested, doctor trusted, delivered direct with no middleman.",
+} = Astro.props;
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" type="image/svg+xml" href="/icons/leaf-detail.svg" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+  </head>
+  <body>
+    <slot />
+  </body>
+</html>

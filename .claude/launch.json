@@ -1,0 +1,12 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "healthy-technologies",
+      "runtimeExecutable": "C:\\Program Files\\nodejs\\npm.cmd",
+      "runtimeArgs": ["run", "dev", "--", "--port", "4321"],
+      "cwd": "D:\\Repositories\\Healthy Technologies",
+      "port": 4321
+    }
+  ]
+}
