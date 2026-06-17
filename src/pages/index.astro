@@ -6,12 +6,13 @@ import SectionHead from '../components/SectionHead.astro';
 import LeafDetail from '../components/LeafDetail.astro';
 import Icon from '../components/Icon.astro';
 
-const trust = [
-  '~5 Years in Business',
-  '$1M+ in Independent Lab Equipment',
-  'Doctor-Endorsed Portfolio',
-  'Majority of Customers from Referrals',
-  'BBB Accredited',
+// Trust numbers — shown as a horizontal stat row in the Our Story section
+const trustStats = [
+  { num: '~5', label: 'Years in Business' },
+  { num: '$1M+', label: 'in Independent Lab Equipment' },
+  { num: 'Doctor', label: 'Endorsed Portfolio' },
+  { num: 'Referral', label: 'Driven — most customers come by word of mouth' },
+  { num: 'BBB', label: 'Accredited Business' },
 ];
 
 const ecosystem = [
@@ -49,11 +50,11 @@ const ecosystem = [
 ];
 
 const why = [
-  { icon: 'tag', title: 'No MLM. No Markup. No Middleman.', body: 'Many wellness brands rely on multi-level marketing that inflates prices and erodes trust. We deliver equal or superior technology direct to you, with transparent pricing.' },
-  { icon: 'verify', title: 'We Test It. We Prove It.', body: 'With over $1M in independent laboratory equipment, we identify every contaminant in your water and custom-build a solution around it. This is not marketing — it’s science.' },
-  { icon: 'swap', title: 'Loyal to What Works, Not What’s Profitable.', body: 'We’re not under contract with any single manufacturer. If a better product exists at a better price, we switch. Companies have asked to join our portfolio and been turned down.' },
-  { icon: 'book', title: 'Education First. Always.', body: 'We’ve deeply researched every product in this portfolio, and you deserve to know what we know — whether it leads to a sale or not. We educate first, recommend second, and follow up always.' },
-  { icon: 'wallet', title: 'A Healthy Home Within Reach.', body: 'A healthy home should be within reach for every family. We offer flexible financing through Affirm with interest-free options. Clean living isn’t a luxury — it’s a necessity.' },
+  { icon: 'tag', img: '/images/dad-cleaning.webp', title: 'No MLM. No Markup. No Middleman.', body: 'Many wellness brands rely on multi-level marketing that inflates prices and erodes trust. We deliver equal or superior technology direct to you, with transparent pricing.' },
+  { icon: 'verify', img: '/images/kitchen-clean.webp', title: 'We Test It. We Prove It.', body: 'With over $1M in independent laboratory equipment, we identify every contaminant in your water and custom-build a solution around it. This is not marketing — it’s science.' },
+  { icon: 'swap', img: '/images/sleep-child.webp', title: 'Loyal to What Works, Not What’s Profitable.', body: 'We’re not under contract with any single manufacturer. If a better product exists at a better price, we switch. Companies have asked to join our portfolio and been turned down.' },
+  { icon: 'book', img: '/images/story-stretching.webp', title: 'Education First. Always.', body: 'We’ve deeply researched every product in this portfolio, and you deserve to know what we know — whether it leads to a sale or not. We educate first, recommend second, and follow up always.' },
+  { icon: 'wallet', img: '/images/hero-family.webp', title: 'A Healthy Home Within Reach.', body: 'A healthy home should be within reach for every family. We offer flexible financing through Affirm with interest-free options. Clean living isn’t a luxury — it’s a necessity.' },
 ];
 
 const assessmentCovers = [
@@ -98,12 +99,10 @@ const partners = ['ActivePure', 'NASA-Derived', 'BBB Accredited', 'Affirm', 'Uta
         </div>
       </div>
 
-      <!-- composed hero visual -->
+      <!-- hero photo + floating proof badges -->
       <div class="hero__visual">
-        <div class="hero__card">
-          <div class="hero__leaf"><LeafDetail /></div>
-          <div class="hero__card-title">Your home, made clean</div>
-          <div class="hero__card-sub">Water · Air · Sleep · Kitchen</div>
+        <div class="hero__photo">
+          <img src="/images/hero-family.webp" width="1600" height="1086" alt="A family cleaning their kitchen together" fetchpriority="high" />
         </div>
         <div class="float float--a"><span class="chip chip--mint"><Icon name="check" size={22} /></span><div><b>Doctor-Endorsed</b><small>Trusted nationwide</small></div></div>
         <div class="float float--b"><span class="chip chip--blue"><Icon name="shield" size={22} /></span><div><b>PFAS-Free</b><small>Removed at every tap</small></div></div>
@@ -112,19 +111,7 @@ const partners = ['ActivePure', 'NASA-Derived', 'BBB Accredited', 'Affirm', 'Uta
     </div>
   </section>
 
-  <!-- ============ 02 · TRUST BAR ============ -->
-  <section class="trust">
-    <div class="container trust__inner">
-      {trust.map((t, i) => (
-        <>
-          <div class="trust__item"><Icon name="check" size={20} class="trust__ic" /> {t}</div>
-          {i < trust.length - 1 && <span class="trust__dot" aria-hidden="true"></span>}
-        </>
-      ))}
-    </div>
-  </section>
-
-  <!-- ============ 03 · BRAND STATEMENT ============ -->
+  <!-- ============ 02 · BRAND STATEMENT / OUR STORY ============ -->
   <section class="section" id="brand">
     <div class="container brand">
       <div class="brand__copy">
@@ -144,19 +131,31 @@ const partners = ['ActivePure', 'NASA-Derived', 'BBB Accredited', 'Affirm', 'Uta
         </p>
         <a href="#brand" class="btn btn--teal">Learn Our Story <span class="arrow">→</span></a>
       </div>
-      <aside class="brand__panel">
-        <div class="brand__stat"><b>~5</b><span>years helping families</span></div>
-        <div class="brand__stat"><b>5</b><span>wellness categories, one brand</span></div>
-        <div class="brand__stat"><b>100%</b><span>independently tested</span></div>
+      <div class="brand__media">
+        <div class="brand__photo">
+          <img src="/images/story-stretching.webp" width="1280" height="854" alt="A mother and daughter stretching together at home" loading="lazy" />
+        </div>
         <div class="brand__quote">
           <LeafDetail />
           <p>“Every product hand-selected. Every customer treated like family.”</p>
         </div>
-      </aside>
+      </div>
+    </div>
+
+    <!-- horizontal trust-number row -->
+    <div class="container">
+      <div class="statrow">
+        {trustStats.map((s) => (
+          <div class="stat">
+            <b class="stat__num">{s.num}</b>
+            <span class="stat__label">{s.label}</span>
+          </div>
+        ))}
+      </div>
     </div>
   </section>
 
-  <!-- ============ 04 · PRODUCT ECOSYSTEM ============ -->
+  <!-- ============ 03 · PRODUCT ECOSYSTEM ============ -->
   <section class="section ecosystem" id="ecosystem">
     <div class="container">
       <SectionHead
@@ -178,28 +177,36 @@ const partners = ['ActivePure', 'NASA-Derived', 'BBB Accredited', 'Affirm', 'Uta
     </div>
   </section>
 
-  <!-- ============ 05 · WHY CHOOSE US ============ -->
+  <!-- ============ 04 · WHY CHOOSE US (carousel) ============ -->
   <section class="section why" id="why">
     <div class="container">
       <SectionHead
         eyebrow="Why choose us"
         title="Researched for Years. Proven in Homes. <span class='accent'>Trusted by Doctors.</span>"
       />
-      <div class="why-grid">
+    </div>
+    <div class="carousel" data-carousel>
+      <div class="carousel__track" data-track>
         {why.map((w) => (
-          <article class="why-card">
-            <span class="chip chip--mint"><Icon name={w.icon} size={28} /></span>
-            <div>
+          <article class="wbox">
+            <div class="wbox__media">
+              <img src={w.img} width="900" height="600" alt="" loading="lazy" />
+            </div>
+            <div class="wbox__body">
               <h3>{w.title}</h3>
               <p class="muted">{w.body}</p>
             </div>
           </article>
         ))}
       </div>
+      <div class="container carousel__nav">
+        <button type="button" class="cbtn" data-prev aria-label="Previous">←</button>
+        <button type="button" class="cbtn" data-next aria-label="Next">→</button>
+      </div>
     </div>
   </section>
 
-  <!-- ============ 06 · HEALTHY HOME ASSESSMENT ============ -->
+  <!-- ============ 05 · HEALTHY HOME ASSESSMENT ============ -->
   <section class="section" id="assessment">
     <div class="container assess">
       <div class="assess__copy">
@@ -225,7 +232,7 @@ const partners = ['ActivePure', 'NASA-Derived', 'BBB Accredited', 'Affirm', 'Uta
     </div>
   </section>
 
-  <!-- ============ 07 · SOCIAL PROOF ============ -->
+  <!-- ============ 06 · SOCIAL PROOF ============ -->
   <section class="section stories" id="stories">
     <div class="container">
       <SectionHead
@@ -255,7 +262,7 @@ const partners = ['ActivePure', 'NASA-Derived', 'BBB Accredited', 'Affirm', 'Uta
     </div>
   </section>
 
-  <!-- ============ 08 · PARTNER LOGOS ============ -->
+  <!-- ============ 07 · PARTNER LOGOS ============ -->
   <section class="section--tight partners">
     <div class="container center">
       <p class="eyebrow">We are honored to partner with</p>
@@ -265,7 +272,7 @@ const partners = ['ActivePure', 'NASA-Derived', 'BBB Accredited', 'Affirm', 'Uta
     </div>
   </section>
 
-  <!-- ============ 09 · EMAIL SIGNUP ============ -->
+  <!-- ============ 08 · EMAIL SIGNUP ============ -->
   <section class="signup">
     <div class="container signup__inner">
       <div class="blob signup__blob"></div>
@@ -282,6 +289,22 @@ const partners = ['ActivePure', 'NASA-Derived', 'BBB Accredited', 'Affirm', 'Uta
   <Footer />
 </Layout>
 
+<script>
+  // Why-Choose-Us carousel: arrow buttons scroll the track by one card.
+  document.querySelectorAll('[data-carousel]').forEach((root) => {
+    const track = root.querySelector('[data-track]') as HTMLElement | null;
+    const prev = root.querySelector('[data-prev]');
+    const next = root.querySelector('[data-next]');
+    if (!track) return;
+    const step = () => {
+      const card = track.querySelector('.wbox') as HTMLElement | null;
+      return card ? card.offsetWidth + 24 : track.clientWidth * 0.8;
+    };
+    prev?.addEventListener('click', () => track.scrollBy({ left: -step(), behavior: 'smooth' }));
+    next?.addEventListener('click', () => track.scrollBy({ left: step(), behavior: 'smooth' }));
+  });
+</script>
+
 <style>
   .accent{color:var(--teal);}
   .accent-light{color:#8FE3D2;}
@@ -292,24 +315,16 @@ const partners = ['ActivePure', 'NASA-Derived', 'BBB Accredited', 'Affirm', 'Uta
   .hero{position:relative;overflow:hidden;background:linear-gradient(180deg,#fff 0%,var(--surface) 100%);padding:72px 0 96px;}
   .hero__blob1{width:620px;height:620px;background:var(--mint);top:-260px;right:-200px;opacity:.7;}
   .hero__blob2{width:380px;height:380px;border:22px solid var(--blue-tint);top:120px;right:120px;opacity:.6;}
-  .hero__inner{position:relative;display:grid;grid-template-columns:1.1fr .9fr;gap:56px;align-items:center;}
+  .hero__inner{position:relative;display:grid;grid-template-columns:1.04fr .96fr;gap:56px;align-items:center;}
   .hero__h1{margin:14px 0 22px;}
   .hero__sub{max-width:540px;}
   .hero__support{display:flex;align-items:center;gap:10px;margin:22px 0 32px;font-weight:600;color:var(--teal-dark);}
   .hero__support :global(svg){flex:none;color:var(--teal);}
   .hero__cta{display:flex;flex-wrap:wrap;gap:14px;}
 
-  .hero__visual{position:relative;min-height:420px;}
-  .hero__card{
-    position:relative;z-index:2;background:#fff;border:1px solid var(--border);
-    border-radius:var(--radius-lg);box-shadow:var(--shadow-lg);
-    padding:48px 40px;text-align:center;max-width:360px;margin:0 auto;
-    background-image:radial-gradient(circle at 50% 0,var(--mint) 0,transparent 60%);
-  }
-  .hero__leaf{display:flex;justify-content:center;margin-bottom:18px;}
-  .hero__leaf :global(svg){width:92px;color:var(--teal);}
-  .hero__card-title{font-size:24px;font-weight:700;color:var(--blue);}
-  .hero__card-sub{font-size:15px;color:var(--slate);margin-top:6px;letter-spacing:.02em;}
+  .hero__visual{position:relative;}
+  .hero__photo{position:relative;z-index:2;border-radius:var(--radius-lg);overflow:hidden;box-shadow:var(--shadow-lg);aspect-ratio:1.42/1;}
+  .hero__photo img{width:100%;height:100%;object-fit:cover;}
   .float{
     position:absolute;z-index:3;display:flex;align-items:center;gap:12px;
     background:#fff;border:1px solid var(--border);border-radius:14px;
@@ -317,29 +332,35 @@ const partners = ['ActivePure', 'NASA-Derived', 'BBB Accredited', 'Affirm', 'Uta
   }
   .float b{display:block;font-size:15px;}
   .float small{display:block;font-size:12px;color:var(--muted);}
-  .float--a{top:18px;left:-12px;}
-  .float--b{bottom:78px;right:-14px;}
-  .float--c{bottom:0;left:24px;flex-direction:column;align-items:flex-start;gap:0;padding:16px 20px;}
+  .float--a{top:24px;left:-26px;}
+  .float--b{bottom:96px;right:-26px;}
+  .float--c{bottom:-22px;left:30px;flex-direction:column;align-items:flex-start;gap:0;padding:16px 20px;}
   .float__stat{font-size:26px;color:var(--teal);line-height:1;}
 
-  /* ---------- TRUST BAR ---------- */
-  .trust{background:var(--blue);}
-  .trust__inner{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:10px 18px;padding:22px 48px;}
-  .trust__item{display:inline-flex;align-items:center;gap:9px;color:#fff;font-size:14.5px;font-weight:500;}
-  .trust__ic{color:#8FE3D2;flex:none;}
-  .trust__dot{width:5px;height:5px;border-radius:50%;background:rgba(255,255,255,.4);}
-
   /* ---------- BRAND STATEMENT ---------- */
-  .brand{display:grid;grid-template-columns:1.25fr .75fr;gap:56px;align-items:center;}
+  .brand{display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:center;margin-bottom:56px;}
   .brand__p{margin-bottom:18px;font-size:17px;}
   .brand .btn{margin-top:10px;}
-  .brand__panel{background:var(--mint);border-radius:var(--radius-lg);padding:36px;display:grid;gap:18px;}
-  .brand__stat{display:flex;align-items:baseline;gap:14px;}
-  .brand__stat b{font-size:40px;font-weight:700;color:var(--blue);line-height:1;min-width:84px;}
-  .brand__stat span{font-size:15px;color:var(--slate);}
-  .brand__quote{margin-top:6px;background:#fff;border-radius:14px;padding:22px;}
-  .brand__quote :global(svg){width:34px;color:var(--teal);margin-bottom:10px;}
-  .brand__quote p{font-size:16px;font-weight:600;color:var(--ink);font-style:italic;}
+  .brand__media{position:relative;}
+  .brand__photo{border-radius:var(--radius-lg);overflow:hidden;box-shadow:var(--shadow-lg);aspect-ratio:1.3/1;}
+  .brand__photo img{width:100%;height:100%;object-fit:cover;}
+  .brand__quote{
+    position:absolute;right:-14px;bottom:-28px;max-width:300px;
+    background:#fff;border:1px solid var(--border);border-radius:16px;
+    padding:22px 24px;box-shadow:var(--shadow-md);
+  }
+  .brand__quote :global(svg){width:32px;color:var(--teal);margin-bottom:8px;}
+  .brand__quote p{font-size:15.5px;font-weight:600;color:var(--ink);font-style:italic;line-height:1.45;}
+
+  /* ---------- TRUST STAT ROW ---------- */
+  .statrow{
+    display:grid;grid-template-columns:repeat(5,1fr);gap:18px;
+    background:var(--mint);border-radius:var(--radius-lg);padding:36px 32px;margin-top:24px;
+  }
+  .stat{text-align:center;padding:0 8px;position:relative;}
+  .stat + .stat::before{content:"";position:absolute;left:-9px;top:6px;bottom:6px;width:1px;background:rgba(16,184,154,.25);}
+  .stat__num{display:block;font-size:34px;font-weight:700;color:var(--blue);line-height:1.05;}
+  .stat__label{display:block;font-size:13.5px;color:var(--slate);margin-top:8px;line-height:1.4;}
 
   /* ---------- ECOSYSTEM ---------- */
   .ecosystem{background:var(--surface);}
@@ -352,12 +373,29 @@ const partners = ['ActivePure', 'NASA-Derived', 'BBB Accredited', 'Affirm', 'Uta
   .eco-card--wide{grid-column:1 / -1;}
   .eco-card--wide .eco-card__body{max-width:760px;}
 
-  /* ---------- WHY ---------- */
-  .why-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:26px;}
-  .why-card{display:flex;gap:20px;align-items:flex-start;background:#fff;border:1px solid var(--border);border-radius:var(--radius);padding:30px;}
-  .why-card:nth-child(5){grid-column:1 / -1;}
-  .why-card h3{font-size:19px;margin-bottom:8px;}
-  .why-card .chip{flex:none;}
+  /* ---------- WHY (carousel) ---------- */
+  .carousel__nav{display:flex;gap:12px;justify-content:center;margin-top:28px;}
+  .cbtn{
+    width:46px;height:46px;border-radius:50%;border:1px solid var(--border);background:#fff;
+    font-size:18px;color:var(--blue);cursor:pointer;box-shadow:var(--shadow-sm);
+    transition:background .15s ease,color .15s ease,transform .15s ease;
+  }
+  .cbtn:hover{background:var(--blue);color:#fff;transform:translateY(-2px);}
+  .carousel__track{
+    display:flex;gap:24px;overflow-x:auto;scroll-snap-type:x mandatory;
+    padding:8px max(var(--pad),calc((100vw - var(--container))/2 + var(--pad))) 28px;
+    scrollbar-width:none;
+  }
+  .carousel__track::-webkit-scrollbar{display:none;}
+  .wbox{
+    flex:0 0 360px;max-width:360px;scroll-snap-align:start;
+    background:#fff;border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;
+    box-shadow:var(--shadow-sm);display:flex;flex-direction:column;
+  }
+  .wbox__media{position:relative;aspect-ratio:3/2;overflow:hidden;}
+  .wbox__media img{width:100%;height:100%;object-fit:cover;}
+  .wbox__body{padding:28px 26px;text-align:center;}
+  .wbox__body h3{font-size:18px;margin-bottom:10px;}
 
   /* ---------- ASSESSMENT ---------- */
   .assess{display:grid;grid-template-columns:1.05fr .95fr;gap:48px;align-items:center;}
@@ -401,13 +439,19 @@ const partners = ['ActivePure', 'NASA-Derived', 'BBB Accredited', 'Affirm', 'Uta
   /* ---------- RESPONSIVE ---------- */
   @media(max-width:980px){
     .hero__inner,.brand,.assess{grid-template-columns:1fr;gap:40px;}
-    .hero__visual{order:-1;min-height:340px;}
-    .eco-grid,.why-grid,.stories-grid{grid-template-columns:1fr;}
+    .hero__visual{order:-1;}
+    .brand__media{order:-1;}
+    .eco-grid,.stories-grid{grid-template-columns:1fr;}
     .endorse{grid-template-columns:1fr;text-align:left;}
     .endorse__cta{justify-self:start;}
+    .statrow{grid-template-columns:repeat(2,1fr);gap:24px 18px;}
+    .stat + .stat::before{display:none;}
   }
   @media(max-width:560px){
     .hero__cta .btn{width:100%;justify-content:center;}
-    .float--a,.float--b,.float--c{display:none;}
+    .float--a,.float--b{display:none;}
+    .float--c{left:50%;transform:translateX(-50%);bottom:-20px;}
+    .statrow{grid-template-columns:1fr;}
+    .wbox{flex-basis:82vw;max-width:82vw;}
   }
 </style>
